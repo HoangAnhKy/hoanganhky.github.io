@@ -1,0 +1,70 @@
+body{
+    background-color: #000;
+}
+.middle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.card{
+    cursor: pointer;
+    width: 600px;
+    height: 450px;
+}
+.front, .back{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    backface-visibility: hidden; /* Xác định bề mặt sau của thành phần khi thực hiện một chuyển động xoay.*/
+    position: absolute;
+    transition: transform .6s linear;
+}
+
+.front img{
+    height: 100%;
+}
+
+.front{
+    transform: perspective(600px) rotateY(0deg);
+}
+
+.back{
+    background-image: linear-gradient(to bottom right, #BADBFB, White);
+    transform: perspective(600px) rotateY(180deg);
+}
+.back-content{
+    color: #000;
+    text-align: center;
+    width: 100%;
+}
+
+.sm{
+    margin: 40px;
+}
+
+.sm a{
+    display: inline-flex;
+    width: 40px;
+    height: 40px;
+    padding: 40px;
+    justify-items: center;
+    align-items: center;
+    color: #000;
+    font-size: 40px;
+    transform: 0.5s;
+    border-radius: 50%;
+}
+
+.sm a:hover{
+    background-color: rgb(36,36,41);
+    color: cyan;
+}
+
+.card:hover > .front{
+    transform: perspective(600px) rotateY(-180deg);
+}
+.card:hover > .back{
+    transform: perspective(600px) rotateY(0deg);
+}
